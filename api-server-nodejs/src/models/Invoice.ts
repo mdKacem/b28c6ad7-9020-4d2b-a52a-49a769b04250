@@ -10,7 +10,7 @@ import Customers from "./Customers";
 import Employees from "./Employees";
 import Supplier from "./Supplier";
 import Payment from "./Payment"; // Import Payment
-import OrderDetail from "./OrderDetail";
+import OrderDetail from "./OrderDetails";
 
 @Entity()
 export default class Invoice {

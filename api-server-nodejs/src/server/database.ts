@@ -8,6 +8,9 @@ import Customers from "../models/Customers";
 import Employees from "../models/Employees";
 import Inventory from "../models/Inventory";
 import Machine from "../models/Machines";
+import Orders from "../models/Orders";
+import OrderDetails from "../models/OrderDetails";
+import Products from "../models/Product";
 
 if (!process.env.SQLITE_PATH) {
   throw new Error("SQLITE_PATH environment variable is not set.");
@@ -16,7 +19,7 @@ if (!process.env.SQLITE_PATH) {
 const options: ConnectionOptions = {
   type: "sqlite",
   database: process.env.SQLITE_PATH,
-  entities: [User, ActiveSession, Customers, Employees, Inventory, Machine],
+  entities: [User, ActiveSession, Customers, Employees, Inventory, Machine, Orders, OrderDetails, Products],
   logging: true,
 };
 

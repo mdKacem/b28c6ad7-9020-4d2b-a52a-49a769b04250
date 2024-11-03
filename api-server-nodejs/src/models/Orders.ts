@@ -11,7 +11,7 @@ import {
 //import OrderDetail from "./OrderDetail";
 
 @Entity()
-export default class Order {
+export default class Orders {
   @PrimaryGeneratedColumn("uuid")
   id!: string;
 
@@ -39,15 +39,15 @@ export default class Order {
   @Column({ type: "text", nullable: true })
   orderNotes?: string; // Additional notes related to the order
 
-  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
-  createdAt!: Date; // Timestamp for when the order was created
+  //@Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
+  //createdAt!: Date; // Timestamp for when the order was created
 
-  @Column({
-    type: "timestamp",
-    default: () => "CURRENT_TIMESTAMP",
-    onUpdate: "CURRENT_TIMESTAMP",
-  })
-  updatedAt!: Date; // Timestamp for when the order was last updated
+  // @Column({
+  //  type: "timestamp",
+  //  default: () => "CURRENT_TIMESTAMP",
+  //  onUpdate: "CURRENT_TIMESTAMP",
+  // })
+  //updatedAt!: Date; // Timestamp for when the order was last updated
 
   //@ManyToOne(() => Customers, (customer) => customer.orders)
   //customer!: Customers;
