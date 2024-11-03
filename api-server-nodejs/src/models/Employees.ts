@@ -1,15 +1,15 @@
 // src/models/Employees.ts
-import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import {
   IsEmail,
   IsNotEmpty,
   IsOptional,
   IsPhoneNumber,
 } from "class-validator";
-import Order from "./Order";
-import Invoice from "./Invoice";
-import Payment from "./Payment";
-import ProductionEmployee from "./ProductionEmployee";
+//import Order from "./Order";
+//import Invoice from "./Invoice";
+//import Payment from "./Payment";
+//import ProductionEmployee from "./ProductionEmployee";
 
 @Entity()
 export default class Employees {
@@ -56,18 +56,18 @@ export default class Employees {
   @Column({ type: "boolean", default: true })
   isActive!: boolean; // Status field to indicate if the employee is active
 
-  @OneToMany(() => Order, (order) => order.employee)
-  orders!: Order[];
+  //@OneToMany(() => Order, (order) => order.employee)
+  //orders!: Order[];
 
-  @OneToMany(() => Invoice, (invoice) => invoice.employee)
-  invoices!: Invoice[];
+  //@OneToMany(() => Invoice, (invoice) => invoice.employee)
+  //invoices!: Invoice[];
 
-  @OneToMany(() => Payment, (payment) => payment.employee)
-  payments!: Payment[];
+  //@OneToMany(() => Payment, (payment) => payment.employee)
+  //payments!: Payment[];
 
-  @OneToMany(
-    () => ProductionEmployee,
-    (productionEmployee) => productionEmployee.employee
-  )
-  productionEmployees!: ProductionEmployee[];
+  //@OneToMany(
+  //  () => ProductionEmployee,
+  //  (productionEmployee) => productionEmployee.employee
+  //)
+  //productionEmployees!: ProductionEmployee[];
 }

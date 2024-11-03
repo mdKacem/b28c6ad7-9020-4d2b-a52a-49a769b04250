@@ -12,6 +12,9 @@ import passport from 'passport';
 
 import initPassport from '../config/passport';
 import routes from '../routes/users';
+import customers from '../routes/customers';
+import employees from '../routes/employees';
+import inventory from '../routes/inventory';
 import { connect } from './database';
 
 // Instantiate express
@@ -32,5 +35,8 @@ server.use(express.json());
 
 // Initialize routes middleware
 server.use('/api/users', routes);
+server.use('/api/customers', customers);
+server.use('/api/employees', employees);
+server.use('/api/inventory', inventory);
 
 export default server;
