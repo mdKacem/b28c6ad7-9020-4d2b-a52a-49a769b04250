@@ -1,0 +1,248 @@
++-------------------+
+|       User        |
++-------------------+
+| id: uuid          | PK
+| username: text    |
+| email: text       |
+| password: text    |
+| date: datetime     |
++-------------------+
+          |
+          | 1
+          | 
+          | N
++---------------------+
+|    ActiveSession    |
++---------------------+
+| id: uuid            | PK
+| token: text         |
+| userId: uuid        | FK -> User.id
+| date: datetime       |
++---------------------+
+
++---------------------+
+|     Customers       |
++---------------------+
+| id: uuid            | PK
+| name: text          |
+| email: text         | unique
+| phoneNumber: varchar|
+| createdAt: timestamp|
+| updatedAt: timestamp|
+| isActive: boolean   |
++---------------------+
+          | 1
+          |
+          | N
++---------------------+
+|      Invoice        |
++---------------------+
+| id: uuid            | PK
+| invoiceNumber: text | unique
+| invoiceDate: date   |
+| dueDate: date       |
+| totalAmount: decimal|
+| status: text        |
+| paymentTerms: text  |
+| notes: text         |
+| taxAmount: decimal  |
+| customerId: uuid    | FK -> Customers.id
+| employeeId: uuid    | FK -> Employees.id
+| supplierId: uuid    | FK -> Supplier.id
++---------------------+
+          |
+          | 1
+          |
+          | N
++---------------------+
+|      Payment        |
++---------------------+
+| id: uuid            | PK
+| paymentDate: date   |
+| amount: decimal     |
+| paymentMethod: varchar|
+| paymentStatus: varchar|
+| referenceNumber: varchar|
+| invoiceId: uuid     | FK -> Invoice.id
+| customerId: uuid    | FK -> Customers.id
+| employeeId: uuid    | FK -> Employees.id
++---------------------+
+
++---------------------+
+|      Employees      |
++---------------------+
+| id: uuid            | PK
+| name: text          |
+| email: text         | unique
+| phoneNumber: varchar|
+| position: text      |
+| department: text    |
+| dateOfBirth: date   |
+| dateOfHire: date    |
+| address: text       |
+| salary: decimal     |
+| isActive: boolean   |
++---------------------+
+          | 1
+          |
+          | N
++----------------------+
+|      Order           |
++----------------------+
+| id: uuid             | PK
+| orderNumber: text    | unique
+| orderDate: date      |
+| totalAmount: decimal |
+| status: text         |
+| shippingAddress: text|
+| billingAddress: text |
+| paymentMethod: text  |
+| orderNotes: text     |
+| createdAt: timestamp |
+| updatedAt: timestamp |
+| customerId: uuid     | FK -> Customers.id
+| employeeId: uuid     | FK -> Employees.id
++---------------------+
+          |
+          | 1
+          |
+          | N
++---------------------+
+|    OrderDetail      |
++---------------------+
+| id: uuid            | PK
+| quantity: integer   |
+| unitPrice: decimal  |
+| totalPrice: decimal |
+| discount: decimal   |
+| taxAmount: decimal  |
+| createdAt: timestamp|
+| updatedAt: timestamp|
+| orderId: uuid       | FK -> Order.id
+| productId: uuid     | FK -> Product.id
+| invoiceId: uuid     | FK -> Invoice.id
++---------------------+
+
++-----------------------+
+|      Product          |
++-----------------------+
+| id: uuid              | PK
+| productName: text     |
+| description: text     |
+| price: decimal        |
+| stockQuantity: integer|
+| isActive: boolean     |
+| createdAt: timestamp  |
+| updatedAt: timestamp  |
++-----------------------+
+          | 1
+          |
+          | N
++---------------------+
+|      Production     |
++---------------------+
+| id: uuid            | PK
+| productionDate: date|
+| quantityProduced: integer|
+| status: text       |
+| shift: text        |
+| machineId: uuid    | FK -> Machine.id
+| productId: uuid    | FK -> Product.id
+| customerId: uuid   | FK -> Customers.id
++---------------------+
+          |
+          | 1
+          |
+          | N
++---------------------+
+|     ProductionEmployee |
++---------------------+
+| id: uuid            | PK
+| productionId: uuid  | FK -> Production.id
+| employeeId: uuid    | FK -> Employees.id
+| role: text          |
+| hoursWorked: decimal |
+ | createdAt: timestamp |
+| updatedAt: timestamp |
++---------------------+
+
++---------------------+
+|      Machine        |
++---------------------+
+| id: uuid            | PK
+| machineType: varchar|
+| machineName: varchar|
+| serialNumber: varchar| unique
+| purchaseDate: date  |
+| location: varchar   |
+| status: varchar     |
+| lastMaintenanceDate: date|
+| description: text    |
++---------------------+
+
++---------------------+
+|      Inventory      |
++---------------------+
+| id: uuid            | PK
+| itemName: text      |
+| sku: text          |
+| description: text   |
+| quantity: decimal   |
+| unitPrice: decimal   |
+| reorderLevel: decimal|
+| category: text      |
+| dateAdded: date     |
+| isActive: boolean   |
+| supplierId: uuid    | FK -> Supplier.id
++---------------------+
+          |
+          | 1
+          |
+          | N
++---------------------+
+|    PurchaseOrder    |
++---------------------+
+| id: uuid            | PK
+| purchaseOrderDate: date|
+| quantity: integer    |
+| totalAmount: decimal |
+| status: text        |
+| supplierId: uuid    | FK -> Supplier.id
+| inventoryItemId: uuid| FK -> Inventory.id
++---------------------+
+
++---------------------+
+|      StockFabric    |
++---------------------+
+| id: uuid            | PK
+| fabricName: text    |
+| quantityInStock: integer|
+| unitPrice: decimal   |
+| reorderLevel: integer|
+| customerId: uuid    | FK -> Customers.id
+| supplierId: uuid    | FK -> Supplier.id
++---------------------+
+
++---------------------+
+|      StockYarn      |
++---------------------+
+| id: uuid            | PK
+| yarnName: text      |
+| quantityInStock: integer|
+| unitPrice: decimal   |
+| reorderLevel: integer|
+| color: text         |
+| supplierId: uuid    | FK -> Supplier.id
++---------------------+
+
++---------------------+
+|      Supplier       |
++---------------------+
+| id: uuid            | PK
+| supplierName: text  |
+| contactPerson: text |
+| contactEmail: text  |
+| phoneNumber: text   |
+| address: text       |
+| customerId: uuid    | FK -> Customers.id
++---------------------+

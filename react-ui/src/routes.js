@@ -5,7 +5,7 @@ import {
   MdBarChart,
   MdPerson,
   MdHome,
-  MdLock,
+  //MdLock,
   MdLogout,
   MdOutlineShoppingCart,
 } from "react-icons/md";
