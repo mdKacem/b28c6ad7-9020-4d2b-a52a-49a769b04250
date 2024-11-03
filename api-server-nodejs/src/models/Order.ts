@@ -3,12 +3,12 @@ import {
   Column,
   Entity,
   PrimaryGeneratedColumn,
-  ManyToOne,
-  OneToMany,
+  //ManyToOne,
+  //OneToMany,
 } from "typeorm";
-import Customers from "./Customers";
-import Employees from "./Employees";
-import OrderDetail from "./OrderDetail";
+//import Customers from "./Customers";
+//import Employees from "./Employees";
+//import OrderDetail from "./OrderDetail";
 
 @Entity()
 export default class Order {
@@ -49,12 +49,12 @@ export default class Order {
   })
   updatedAt!: Date; // Timestamp for when the order was last updated
 
-  @ManyToOne(() => Customers, (customer) => customer.orders)
-  customer!: Customers;
+  //@ManyToOne(() => Customers, (customer) => customer.orders)
+  //customer!: Customers;
 
-  @ManyToOne(() => Employees, (employee) => employee.orders)
-  employee!: Employees;
+  //@ManyToOne(() => Employees, (employee) => employee.orders)
+  //employee!: Employees;
 
-  @OneToMany(() => OrderDetail, (orderDetail) => orderDetail.order)
-  orderDetails!: OrderDetail[]; // Establish the relationship to OrderDetail
+  //@OneToMany(() => OrderDetail, (orderDetail) => orderDetail.order)
+  //orderDetails!: OrderDetail[]; // Establish the relationship to OrderDetail
 }
