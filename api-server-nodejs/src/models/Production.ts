@@ -6,7 +6,7 @@ import {
   ManyToOne,
   OneToMany,
 } from "typeorm"; // Added OneToMany import
-import Machine from "./Machine";
+import Machine from "./Machines";
 import Product from "./Product";
 import Customers from "./Customers";
 import ProductionEmployee from "./ProductionEmployee"; // Import ProductionEmployee

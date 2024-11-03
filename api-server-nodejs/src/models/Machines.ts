@@ -1,9 +1,9 @@
 // src/models/Machine.ts
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-import Production from "./Production";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+//import Production from "./Production";
 
 @Entity()
-export default class Machine {
+export default class Machines {
   @PrimaryGeneratedColumn("uuid")
   id!: string;
 
@@ -31,6 +31,6 @@ export default class Machine {
   @Column({ type: "text", nullable: true })
   description?: string; // Detailed description of the machine
 
-  @OneToMany(() => Production, (production) => production.machine)
-  productions!: Production[]; // Link to Productions
+  //@OneToMany(() => Production, (production) => production.machine)
+  //productions!: Production[]; // Link to Productions
 }

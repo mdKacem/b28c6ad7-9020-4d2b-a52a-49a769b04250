@@ -15,6 +15,7 @@ import routes from '../routes/users';
 import customers from '../routes/customers';
 import employees from '../routes/employees';
 import inventory from '../routes/inventory';
+import machines from '../routes/machines';
 import { connect } from './database';
 
 // Instantiate express
@@ -38,5 +39,6 @@ server.use('/api/users', routes);
 server.use('/api/customers', customers);
 server.use('/api/employees', employees);
 server.use('/api/inventory', inventory);
+server.use('/api/machines', machines);
 
 export default server;
