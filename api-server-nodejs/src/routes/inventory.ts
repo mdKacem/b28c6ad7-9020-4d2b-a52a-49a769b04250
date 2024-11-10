@@ -1,7 +1,7 @@
 // src/routes/inventory.ts
 import { Router } from "express";
 import { getRepository } from "typeorm";
-import Inventory from "../models/Inventory"; // Assuming you have an Inventory model
+import Inventory from "../models/Inventory"; // Ensure you import the correct Inventory model
 
 const inventoryRouter = Router();
 
@@ -46,10 +46,12 @@ inventoryRouter.put("/:id", async (req, res) => {
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.error("Error updating inventory item:", error.message);
-      res.status(500).json({
-        message: "Error updating inventory item",
-        error: error.message,
-      });
+      res
+        .status(500)
+        .json({
+          message: "Error updating inventory item",
+          error: error.message,
+        });
     } else {
       console.error("Unexpected error updating inventory item:", error);
       res
@@ -72,13 +74,14 @@ inventoryRouter.delete("/:id", async (req, res) => {
     await inventoryRepository.delete(inventoryId);
     res.status(204).send();
   } catch (error: unknown) {
-    // Handle error
     if (error instanceof Error) {
       console.error("Error deleting inventory item:", error.message);
-      res.status(500).json({
-        message: "Error deleting inventory item",
-        error: error.message,
-      });
+      res
+        .status(500)
+        .json({
+          message: "Error deleting inventory item",
+          error: error.message,
+        });
     } else {
       console.error("Unexpected error deleting inventory item:", error);
       res

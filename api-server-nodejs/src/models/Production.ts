@@ -3,16 +3,16 @@ import {
   Column,
   Entity,
   PrimaryGeneratedColumn,
-  ManyToOne,
-  OneToMany,
+  //ManyToOne,
+  //OneToMany,
 } from "typeorm"; // Added OneToMany import
-import Machine from "./Machines";
-import Product from "./Product";
-import Customers from "./Customers";
-import ProductionEmployee from "./ProductionEmployee"; // Import ProductionEmployee
+//import Machine from "./Machines";
+//import Product from "./Product";
+//import Customers from "./Customers";
+//import ProductionEmployee from "./ProductionEmployee"; // Import ProductionEmployee
 
 @Entity()
-export default class Production {
+export default class Productions {
   @PrimaryGeneratedColumn("uuid")
   id!: string;
 
@@ -28,28 +28,28 @@ export default class Production {
   @Column({ type: "text", nullable: true })
   shift?: string; // Optional field to specify the shift
 
-  @ManyToOne(() => Machine, (machine) => machine.productions)
-  machine!: Machine;
+  //@ManyToOne(() => Machine, (machine) => machine.productions)
+ // machine!: Machine;
 
-  @ManyToOne(() => Product, (product) => product.productions)
-  product!: Product;
+  //@ManyToOne(() => Product, (product) => product.productions)
+  //product!: Product;
 
-  @ManyToOne(() => Customers, (customer) => customer.productions)
-  customer!: Customers; // Changed from 'supplier' to 'customer'
+  //@ManyToOne(() => Customers, (customer) => customer.productions)
+  //customer!: Customers; // Changed from 'supplier' to 'customer'
 
-  @OneToMany(
-    () => ProductionEmployee,
-    (productionEmployee) => productionEmployee.production
-  )
-  productionEmployees!: ProductionEmployee[]; // Establish the relationship to ProductionEmployee
+  //@OneToMany(
+  // () => ProductionEmployee,
+  //(productionEmployee) => productionEmployee.production
+  //)
+  // productionEmployees!: ProductionEmployee[]; // Establish the relationship to ProductionEmployee
 
-  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
-  createdAt!: Date; // Timestamp for when the production record was created
+  //@Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
+  //createdAt!: Date; // Timestamp for when the production record was created
 
-  @Column({
-    type: "timestamp",
-    default: () => "CURRENT_TIMESTAMP",
-    onUpdate: "CURRENT_TIMESTAMP",
-  })
-  updatedAt!: Date; // Timestamp for when the production record was last updated
+  //@Column({
+  // type: "timestamp",
+  // default: () => "CURRENT_TIMESTAMP",
+  // onUpdate: "CURRENT_TIMESTAMP",
+  //})
+  //updatedAt!: Date; // Timestamp for when the production record was last updated
 }

@@ -1,3 +1,7 @@
+import Production Machine
+purchase order detail
+stock product
+######
 Before proceeding with your application, it's essential to ensure that your models are well-defined and ready for use. Here are some steps and considerations to help you finalize your models:
 
 1. Review Relationships

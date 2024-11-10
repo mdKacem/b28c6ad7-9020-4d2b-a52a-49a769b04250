@@ -15,13 +15,13 @@ export default class PaymentMethod {
   @Column({ type: "boolean", default: true })
   isActive!: boolean; // Indicates if the payment method is active
 
-  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
-  createdAt!: Date; // Timestamp for when the payment method was created
+  //@Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
+  //createdAt!: Date; // Timestamp for when the payment method was created
 
-  @Column({
-    type: "timestamp",
-    default: () => "CURRENT_TIMESTAMP",
-    onUpdate: "CURRENT_TIMESTAMP",
-  })
-  updatedAt!: Date; // Timestamp for when the payment method was last updated
+  //@Column({
+  //type: "timestamp",
+  //default: () => "CURRENT_TIMESTAMP",
+  //onUpdate: "CURRENT_TIMESTAMP",
+  //})
+  //updatedAt!: Date; // Timestamp for when the payment method was last updated
 }

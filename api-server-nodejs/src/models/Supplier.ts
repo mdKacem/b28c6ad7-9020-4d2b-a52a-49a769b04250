@@ -3,15 +3,15 @@ import {
   Column,
   Entity,
   PrimaryGeneratedColumn,
-  OneToMany,
-  ManyToOne,
+  //OneToMany,
+  //ManyToOne,
 } from "typeorm";
-import Inventory from "./Inventory";
-import Invoice from "./Invoice";
-import PurchaseOrder from "./PurchaseOrder";
-import Customers from "./Customers"; // Import Customers
-import StockYarn from "./StockYarn"; // Import StockYarn
-import StockFabric from "./StockFabric"; // Import StockFabric
+//import Inventory from "./Inventory";
+//import Invoice from "./Invoice";
+//import PurchaseOrder from "./PurchaseOrder";
+//import Customers from "./Customers"; // Import Customers
+//import StockYarn from "./StockYarn"; // Import StockYarn
+//import StockFabric from "./StockFabric"; // Import StockFabric
 
 @Entity()
 export default class Supplier {
@@ -33,31 +33,31 @@ export default class Supplier {
   @Column({ type: "text", nullable: true })
   address?: string; // Physical address of the supplier
 
-  @ManyToOne(() => Customers, (customer) => customer.suppliers)
-  customer!: Customers; // Establish relationship back to Customers
+  //@ManyToOne(() => Customers, (customer) => customer.suppliers)
+  //customer!: Customers; // Establish relationship back to Customers
 
-  @OneToMany(() => Inventory, (inventory) => inventory.supplier)
-  inventoryItems!: Inventory[];
+  //@OneToMany(() => Inventory, (inventory) => inventory.supplier)
+  //inventoryItems!: Inventory[];
 
-  @OneToMany(() => Invoice, (invoice) => invoice.supplier)
-  invoices!: Invoice[];
+  //@OneToMany(() => Invoice, (invoice) => invoice.supplier)
+  //invoices!: Invoice[];
 
-  @OneToMany(() => PurchaseOrder, (purchaseOrder) => purchaseOrder.supplier)
-  purchaseOrders!: PurchaseOrder[];
+  //@OneToMany(() => PurchaseOrder, (purchaseOrder) => purchaseOrder.supplier)
+  //purchaseOrders!: PurchaseOrder[];
 
-  @OneToMany(() => StockYarn, (stockYarn) => stockYarn.supplier)
-  stockYarns!: StockYarn[]; // Establish the relationship to StockYarn
+  //@OneToMany(() => StockYarn, (stockYarn) => stockYarn.supplier)
+  //stockYarns!: StockYarn[]; // Establish the relationship to StockYarn
 
-  @OneToMany(() => StockFabric, (stockFabric) => stockFabric.supplier)
-  stockFabrics!: StockFabric[]; // Establish the relationship to StockFabric
+  //@OneToMany(() => StockFabric, (stockFabric) => stockFabric.supplier)
+  //stockFabrics!: StockFabric[]; // Establish the relationship to StockFabric
 
-  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
-  createdAt!: Date; // Timestamp for when the supplier record was created
+  //@Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
+  //createdAt!: Date; // Timestamp for when the supplier record was created
 
-  @Column({
-    type: "timestamp",
-    default: () => "CURRENT_TIMESTAMP",
-    onUpdate: "CURRENT_TIMESTAMP",
-  })
-  updatedAt!: Date; // Timestamp for when the supplier record was last updated
+  //@Column({
+  //type: "timestamp",
+  //default: () => "CURRENT_TIMESTAMP",
+  //onUpdate: "CURRENT_TIMESTAMP",
+  //})
+  //updatedAt!: Date; // Timestamp for when the supplier record was last updated
 }

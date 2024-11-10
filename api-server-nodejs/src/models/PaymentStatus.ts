@@ -15,13 +15,13 @@ export default class PaymentStatus {
   @Column({ type: "boolean", default: true })
   isActive!: boolean; // Indicates if the payment status is active
 
-  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
-  createdAt!: Date; // Timestamp for when the payment status was created
+  //@Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
+  //createdAt!: Date; // Timestamp for when the payment status was created
 
-  @Column({
-    type: "timestamp",
-    default: () => "CURRENT_TIMESTAMP",
-    onUpdate: "CURRENT_TIMESTAMP",
-  })
-  updatedAt!: Date; // Timestamp for when the payment status was last updated
+  //@Column({
+  //type: "timestamp",
+  //default: () => "CURRENT_TIMESTAMP",
+  //onUpdate: "CURRENT_TIMESTAMP",
+  //})
+  //updatedAt!: Date; // Timestamp for when the payment status was last updated
 }

@@ -1,6 +1,11 @@
 // src/models/StockYarn.ts
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
-import Supplier from "./Supplier"; // Import Supplier
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  //  ManyToOne
+} from "typeorm";
+//import Supplier from "./Supplier"; // Import Supplier
 
 @Entity()
 export default class StockYarn {
@@ -22,16 +27,16 @@ export default class StockYarn {
   @Column({ type: "text", nullable: true })
   color?: string; // Optional field to specify the color of the yarn
 
-  @ManyToOne(() => Supplier, (supplier) => supplier.stockYarns)
-  supplier!: Supplier; // Reference to Supplier
+  //@ManyToOne(() => Supplier, (supplier) => supplier.stockYarns)
+  //supplier!: Supplier; // Reference to Supplier
 
-  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
-  createdAt!: Date; // Timestamp for when the stock yarn record was created
+  //@Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
+  //createdAt!: Date; // Timestamp for when the stock yarn record was created
 
-  @Column({
-    type: "timestamp",
-    default: () => "CURRENT_TIMESTAMP",
-    onUpdate: "CURRENT_TIMESTAMP",
-  })
-  updatedAt!: Date; // Timestamp for when the stock yarn record was last updated
+  //@Column({
+  // type: "timestamp",
+  //default: () => "CURRENT_TIMESTAMP",
+  //onUpdate: "CURRENT_TIMESTAMP",
+  //})
+  //updatedAt!: Date; // Timestamp for when the stock yarn record was last updated
 }

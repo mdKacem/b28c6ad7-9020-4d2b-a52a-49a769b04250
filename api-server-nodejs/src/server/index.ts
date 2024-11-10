@@ -17,8 +17,18 @@ import employees from "../routes/employees";
 import inventory from "../routes/inventory";
 import machines from "../routes/machines";
 import orders from "../routes/orders";
-import orderDetails from "../routes/orderdetails";
+import orderDetails from "../routes/orderDetails";
 import products from "../routes/products";
+import productions from "../routes/productions";
+import productionEmployee from "../routes/productionEmployee";
+import purchaseOrder from "../routes/purchaseOrder";
+import stockFabric from "../routes/stockFabric";
+import stockYarn from "../routes/stockYarn";
+import supplier from "../routes/supplier";
+import payment from "../routes/payment";
+import paymentMethod from "../routes/paymentMethod";
+import paymentStatus from "../routes/paymentStatus";
+
 import { connect } from "./database";
 
 // Instantiate express
@@ -46,5 +56,14 @@ server.use("/api/machines", machines);
 server.use("/api/orders", orders);
 server.use("/api/orderdetails", orderDetails);
 server.use("/api/products", products);
+server.use("/api/productions", productions);
+server.use("/api/productionEmployee", productionEmployee);
+server.use("/api/purchaseOrder", purchaseOrder);
+server.use("/api/stockFabric", stockFabric);
+server.use("/api/stockYarn", stockYarn);
+server.use("/api/supplier", supplier);
+server.use("/api/payment", payment);
+server.use("/api/paymentMethod", paymentMethod);
+server.use("/api/paymentStatus", paymentStatus);
 
 export default server;

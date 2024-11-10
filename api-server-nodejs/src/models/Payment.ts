@@ -1,8 +1,13 @@
 // src/models/Payment.ts
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
-import Customers from "./Customers";
-import Employees from "./Employees";
-import Invoice from "./Invoice";
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  // ManyToOne
+} from "typeorm";
+//import Customers from "./Customers";
+//import Employees from "./Employees";
+//import Invoice from "./Invoice";
 
 @Entity()
 export default class Payment {
@@ -24,22 +29,22 @@ export default class Payment {
   @Column({ type: "varchar", length: 100, nullable: true })
   referenceNumber?: string; // Reference number for the payment
 
-  @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
-  createdAt!: Date; // Timestamp for when the payment was created
+  //@Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP" })
+  //createdAt!: Date; // Timestamp for when the payment was created
 
-  @Column({
-    type: "timestamp",
-    default: () => "CURRENT_TIMESTAMP",
-    onUpdate: "CURRENT_TIMESTAMP",
-  })
-  updatedAt!: Date; // Timestamp for when the payment was last updated
+  //@Column({
+  //type: "timestamp",
+  //default: () => "CURRENT_TIMESTAMP",
+  //onUpdate: "CURRENT_TIMESTAMP",
+  //})
+  //updatedAt!: Date; // Timestamp for when the payment was last updated
 
-  @ManyToOne(() => Customers, (customer) => customer.payments)
-  customer!: Customers;
+  //@ManyToOne(() => Customers, (customer) => customer.payments)
+  //customer!: Customers;
 
-  @ManyToOne(() => Employees, (employee) => employee.payments)
-  employee!: Employees;
+  //@ManyToOne(() => Employees, (employee) => employee.payments)
+  //employee!: Employees;
 
-  @ManyToOne(() => Invoice, (invoice) => invoice.payments)
-  invoice!: Invoice; // Correctly references Invoice
+  //@ManyToOne(() => Invoice, (invoice) => invoice.payments)
+  //invoice!: Invoice; // Correctly references Invoice
 }
